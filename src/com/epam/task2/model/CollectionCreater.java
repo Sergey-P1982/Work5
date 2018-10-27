@@ -19,12 +19,17 @@ public class CollectionCreater {
 
         Set<Integer> list = new HashSet<>(elemNumbers);
         Random random = new Random();
-        for (int i = 0; i < elemNumbers; i++) {
-            list.add(random.nextInt(range));
+        if (elemNumbers > range) {
+            throw new IllegalArgumentException("Not enought range to fill the set");
+        } else {
+            for (int i = 0; list.size() < elemNumbers; i++) {
+                list.add(random.nextInt(range));
+            }
         }
 
         return list;
     }
-
 }
+
+
 
